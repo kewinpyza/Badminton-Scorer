@@ -1,41 +1,43 @@
-const btnPlayer1 = document.querySelector(".player1-btn");
-const btnPlayer2 = document.querySelector(".player2-btn");
-const scorePlayer1 = document.querySelector(".player1-score");
-const scorePlayer2 = document.querySelector(".player2-score");
+const player1 = {
+  score: 0,
+  button: document.querySelector(".player1-btn"),
+  displayScore: document.querySelector(".player1-score"),
+};
+
+const player2 = {
+  score: 0,
+  button: document.querySelector(".player2-btn"),
+  displayScore: document.querySelector(".player2-score"),
+};
+
+const players = [player1, player2];
+
 const resetBtn = document.querySelector(".reset-btn");
 const gamePointsSelect = document.querySelector("#playTo");
 
-let score1 = 0;
-let score2 = 0;
 let gamePoints = 9;
 let gameOver = false;
 
-btnPlayer1.addEventListener("click", function () {
+function scoreUpdate(player, rival) {
   if (!gameOver) {
-    score1++;
-    if (score1 === gamePoints) {
+    player.score++;
+    if (player.score === gamePoints) {
       gameOver = true;
-      scorePlayer1.classList.add("has-text-success");
-      scorePlayer2.classList.add("has-text-danger");
-      btnPlayer1.disabled = true;
-      btnPlayer2.disabled = true;
+      player.displayScore.classList.add("has-text-success");
+      rival.displayScore.classList.add("has-text-danger");
+      player.button.disabled = true;
+      rival.button.disabled = true;
     }
-    scorePlayer1.textContent = score1;
+    player.displayScore.textContent = player.score;
   }
+}
+
+player1.button.addEventListener("click", function () {
+  scoreUpdate(player1, player2);
 });
 
-btnPlayer2.addEventListener("click", function () {
-  if (!gameOver) {
-    score2++;
-    if (score2 === gamePoints) {
-      gameOver = true;
-      scorePlayer2.classList.add("has-text-success");
-      scorePlayer1.classList.add("has-text-danger");
-      btnPlayer1.disabled = true;
-      btnPlayer2.disabled = true;
-    }
-    scorePlayer2.textContent = score2;
-  }
+player2.button.addEventListener("click", function () {
+  scoreUpdate(player2, player1);
 });
 
 gamePointsSelect.addEventListener("change", function () {
@@ -47,12 +49,10 @@ resetBtn.addEventListener("click", init);
 
 function init() {
   gameOver = false;
-  score1 = 0;
-  score2 = 0;
-  scorePlayer1.textContent = 0;
-  scorePlayer2.textContent = 0;
-  scorePlayer1.classList.remove("has-text-success", "has-text-danger");
-  scorePlayer2.classList.remove("has-text-success", "has-text-danger");
-  btnPlayer1.disabled = false;
-  btnPlayer2.disabled = false;
+  for (const p of players) {
+    p.score = 0;
+    p.displayScore.textContent = 0;
+    p.displayScore.classList.remove("has-text-success", "has-text-danger");
+    p.button.disabled = false;
+  }
 }
