@@ -18,67 +18,82 @@
           <div class="column is-7 is-offset-one-fifth">
             <div class="card">
               <header class="card-header">
-                <p class="card-header-title">Badminton Scorer</p>
+                <div class="card-header-title">
+                  <p class="game-title">Badminton Scorer</p>
+                  <p class="game-result ml-auto is-size-6">
+                    Player1:
+                    <span class="score-label player1-game-score is-size-5"
+                      >0</span
+                    >
+                    vs Player2:
+                    <span class="score-label player2-game-score is-size-5"
+                      >0</span
+                    >
+                  </p>
+                </div>
               </header>
               <div class="card-image">
                 <figure class="image is-2by1">
                   <img src="images/badminton-game.jpg" alt="badminton-game" />
                 </figure>
               </div>
-              <div class="card-content">
+              <div class="card-content pb-2">
                 <div class="content">
                   <h1 class="title is-2">
                     Set <span class="game">1</span>:
                     <span class="player1 player1-score">0</span> to
                     <span class="player2 player2-score">0</span>
                   </h1>
-                  <p class="subtitle">
+                  <p class="subtitle mb-3">
                     Click on any of the buttons to change the score
                   </p>
                   <div class="changer">
-                    <label for="playTo" class="label is-large is-inline"
+                    <label for="playTo" class="label is-large is-inline mr-2"
                       >Game Points</label
                     >
                     <div class="select is-rounded is-danger">
-                      <select name="" id="playTo">
-                        <option value="9">9</option>
+                      <select name="" id="playto">
+                        <option value="5">5</option>
+                        <option value="9" selected>9</option>
                         <option value="11">11</option>
                         <option value="13">13</option>
                         <option value="15">15</option>
-                        <option value="19">19</option>
                         <option value="21">21</option>
                         <option value="25">25</option>
                       </select>
                     </div>
                   </div>
                   <div class="changer">
-                    <label for="numSets" class="label is-large is-inline"
+                    <label for="numSets" class="label is-large is-inline mr-2"
                       >Number of Sets</label
                     >
                     <div class="select is-rounded is-primary">
-                      <select name="" id="numSets">
-                        <option value="3">3</option>
+                      <select name="" id="num-sets">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
                         <option value="5">5</option>
                       </select>
                     </div>
                   </div>
                 </div>
               </div>
-              <footer class="card-footer">
+              <footer class="card-footer buttons are-large">
                 <button
-                  class="button is-info player1 player1-btn card-footer-item is-large"
+                  class="button is-info player1 player1-btn card-footer-item"
                 >
-                  +1 Player One
+                  +1pt Player1
                 </button>
                 <button
-                  class="button is-primary player2 player2-btn card-footer-item is-large"
+                  class="button is-primary player2 player2-btn card-footer-item"
                 >
-                  +1 Player Two
+                  +1pt Player2
                 </button>
-                <button
-                  class="button is-danger reset-btn card-footer-item is-large"
-                >
-                  Reset
+                <button class="button is-warning set-btn card-footer-item">
+                  New Set
+                </button>
+                <button class="button is-danger reset-btn card-footer-item">
+                  Reset Game
                 </button>
               </footer>
             </div>

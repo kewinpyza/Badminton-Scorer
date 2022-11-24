@@ -1,3 +1,19 @@
 .changer {
   padding: 2px 0;
 }
+
+.section {
+  padding-top: 1rem;
+}
+
+.score-label {
+  box-sizing: border-box;
+  border: 1px solid #14237c;
+  color: #185883;
+  background-color: #c1c1c1;
+  padding: 0 0.5rem;
+}
+
+.game-title {
+  font-size: 1.15rem;
+}
